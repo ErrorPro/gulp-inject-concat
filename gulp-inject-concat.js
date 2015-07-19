@@ -1,7 +1,6 @@
 var fs = require('fs');
 var through = require('through2');
 var Concat = require('concat-with-sourcemaps');
-var path = require('path');
 
 module.exports = function(file, opt){
   if (!file) {
