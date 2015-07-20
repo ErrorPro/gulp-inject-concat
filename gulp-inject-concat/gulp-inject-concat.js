@@ -14,8 +14,8 @@ module.exports = function(file, opt){
     concatFile(html, file, opt.sourcemaps)
 
     chunk.contents =  new Buffer(html.replace(tags.replace, "<!--$&-->")
-        .replace(/<!-- endconcat -->/gi,
-          '<script src="'+file+'"><\/script>\n$&'), enc);
+        .replace(/(.+?)<!-- endconcat -->/gi,
+          '$1<script src="'+file+'"><\/script>\n$&'), enc);
 
     this.push(chunk)
     callback()
